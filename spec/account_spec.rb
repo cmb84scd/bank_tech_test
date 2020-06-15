@@ -1,4 +1,4 @@
-require 'bank'
+require 'account'
 
 describe Account do
   before(:each) do

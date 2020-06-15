@@ -40,8 +40,8 @@ date || credit || debit || balance
 #### Domain Model
 | Objects | Messages |
 | --- | --- |
-| Bank | deposit |
-| | withdrawal |
+| Account | deposit |
+| | withdraw |
 | | statement |
 | | show_balance |
 
