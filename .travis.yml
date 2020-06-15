@@ -1,4 +1,7 @@
 language: ruby
 
+install:
+  - gem install bundler -v 2.1.4
+
 script:
   - bundle exec rspec
