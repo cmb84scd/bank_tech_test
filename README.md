@@ -35,3 +35,21 @@ date || credit || debit || balance
 13/01/2012 || 2000.00 || || 3000.00
 10/01/2012 || 1000.00 || || 1000.00
 ```
+
+### Diagrams
+#### Domain Model
+| Objects | Messages |
+| --- | --- |
+| Bank | deposit |
+| | withdrawal |
+| | statement |
+| | show_balance |
+
+#### Input/Output table
+Starting balance = 0
+
+| Input | Output |
+| --- | --- |
+| 1000 added | Balance is 1000 |
+| 2000 added | Balance is 3000 |
+| 500 withdrawn | Balance is 2500 |
