@@ -1,7 +1,31 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/student/Projects/week10/bank_tech_test/spec/bank_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/student/Projects/week10/bank_tech_test/lib/bank.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      }
     },
-    "timestamp": 1592228702
+    "timestamp": 1592229649
   }
 }
