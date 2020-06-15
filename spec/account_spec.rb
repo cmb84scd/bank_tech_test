@@ -5,18 +5,24 @@ describe Account do
     @account = Account.new
   end
 
-  it 'Has a default balance of 0' do
+  it 'has a default balance of 0' do
     expect(@account.show_balance).to eq 0
   end
 
-  it 'Allows you to save money' do
+  it 'allows you to save money' do
     @account.deposit(500)
     expect(@account.show_balance).to eq 500
   end
 
-  it 'Allows you to withdraw money' do
-    @account.deposit(500)
-    @account.withdraw(100)
-    expect(@account.show_balance).to eq 400
+  describe '#withdraw' do
+    it 'allows you to withdraw money' do
+      @account.deposit(500)
+      @account.withdraw(100)
+      expect(@account.show_balance).to eq 400
+    end
+
+    it 'raises an error if not enough money' do
+      expect { @account.withdraw(100) }.to raise_error("Not enough money in your account! Your balance is: #{@account.show_balance}")
+    end
   end
 end
