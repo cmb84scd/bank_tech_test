@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/cmb84scd/bank_tech_test.svg?branch=master)](https://travis-ci.org/cmb84scd/bank_tech_test)
+
 ## Bank tech test
 
 ### Requirements
