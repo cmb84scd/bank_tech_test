@@ -24,8 +24,8 @@ describe Account do
     end
   end
 
-  let(:save) { { credit: 500 } }
-  let(:spend) { { debit: 100 } }
+  let(:save) { { credit: 500, balance: 500 } }
+  let(:spend) { { debit: 100, balance: 400 } }
 
   describe '#transactions' do
     it 'has an empty transactions list by default' do
@@ -45,7 +45,7 @@ describe Account do
   end
 
   it 'can a print a statement header' do
-    expect(@account.statement_header).to eq "credit || debit"
+    expect(@account.statement_header).to eq "credit || debit || balance"
   end
 
   describe '#statement' do
