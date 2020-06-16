@@ -55,5 +55,11 @@ describe Account do
       @account.deposit(500)
       expect(@account.statement).to eq [save]
     end
+
+    it 'can print a statement' do
+      @account.deposit(500)
+      @account.withdraw(100)
+      expect(@account.statement).to eq [save, spend]
+    end
   end
 end
