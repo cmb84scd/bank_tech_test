@@ -19,5 +19,6 @@ class Account
     fail "Not enough money in your account! Your balance is: #{show_balance}" if amount > @balance
 
     @balance -= amount
+    @transactions << { debit: amount }
   end
 end

@@ -28,14 +28,21 @@ describe Account do
 
   describe '#transactions' do
     let(:save){ {credit: 500} }
+    let(:spend){ {debit: 100} }
 
     it 'has an empty transactions list by default' do
       expect(@account.transactions).to be_empty
     end
 
-    it 'can store one transaction' do
+    it 'can store a single transaction' do
       @account.deposit(500)
       expect(@account.transactions).to include save
+    end
+
+    it 'can store multiple transactions' do
+      @account.deposit(500)
+      @account.withdraw(100)
+      expect(@account.transactions).to include spend
     end
   end
 end
