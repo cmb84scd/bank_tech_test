@@ -21,4 +21,15 @@ class Account
     @balance -= amount
     @transactions << { debit: amount }
   end
+
+  def statement_header
+    "credit || debit"
+  end
+
+  def statement
+    puts statement_header
+    @transactions.each do |transaction|
+      puts "#{transaction[:credit]} || #{transaction[:debit]}"
+    end
+  end
 end

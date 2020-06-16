@@ -26,10 +26,10 @@ describe Account do
     end
   end
 
-  describe '#transactions' do
-    let(:save){ {credit: 500} }
-    let(:spend){ {debit: 100} }
+  let(:save) { { credit: 500 } }
+  let(:spend) { { debit: 100 } }
 
+  describe '#transactions' do
     it 'has an empty transactions list by default' do
       expect(@account.transactions).to be_empty
     end
@@ -43,6 +43,17 @@ describe Account do
       @account.deposit(500)
       @account.withdraw(100)
       expect(@account.transactions).to include spend
+    end
+  end
+
+  it 'can a print a statement header' do
+    expect(@account.statement_header).to eq "credit || debit"
+  end
+
+  describe '#statement' do
+    it 'can print a simple statement' do
+      @account.deposit(500)
+      expect(@account.statement).to eq [save]
     end
   end
 end
