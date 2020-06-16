@@ -9,6 +9,10 @@ describe Account do
     expect(@account.show_balance).to eq 0
   end
 
+  it 'has an empty transactions list by default' do
+    expect(@account.transactions).to be_empty
+  end
+
   it 'allows you to save money' do
     @account.deposit(500)
     expect(@account.show_balance).to eq 500
