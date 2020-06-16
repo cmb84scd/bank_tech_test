@@ -12,6 +12,7 @@ class Account
 
   def deposit(amount)
     @balance += amount
+    @transactions << { credit: amount }
   end
 
   def withdraw(amount)
