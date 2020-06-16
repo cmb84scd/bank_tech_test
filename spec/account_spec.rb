@@ -10,15 +10,13 @@ describe Account do
   end
 
   it 'allows you to save money' do
-    @account.deposit(500)
-    expect(@account.show_balance).to eq 500
+    expect { @account.deposit(500) }.to change { @account.show_balance }.by 500
   end
 
   describe '#withdraw' do
     it 'allows you to withdraw money' do
       @account.deposit(500)
-      @account.withdraw(100)
-      expect(@account.show_balance).to eq 400
+      expect { @account.withdraw(100) }.to change { @account.show_balance }.by(-100)
     end
 
     it 'raises an error if not enough money' do
