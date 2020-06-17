@@ -1,6 +1,13 @@
 [![Build Status](https://travis-ci.org/cmb84scd/bank_tech_test.svg?branch=master)](https://travis-ci.org/cmb84scd/bank_tech_test)
 
 ## Bank tech test
+This is my bank tech test, done in week 10 at Makers Academy. You are able to save, spend, check your balance and print a statement in IRB. To use, please clone this repo and then do the following:
+```
+- bundle install
+- rspec # to see that all tests are passing
+- rubocop # to see that it is linted
+- irb
+```
 
 ### Requirements
 - You should be able to interact with your code via a REPL like IRB or the JavaScript console. (You don't need to implement a command line interface that takes input from STDIN.)
