@@ -1,3 +1,5 @@
+require 'date'
+
 class Account
   attr_reader :balance, :transactions
 
@@ -12,24 +14,24 @@ class Account
 
   def deposit(amount)
     @balance += amount
-    @transactions << { credit: amount, balance: @balance }
+    @transactions << { date: Date.today.strftime('%d/%m/%Y'), credit: amount, balance: @balance }
   end
 
   def withdraw(amount)
     fail "Not enough money in your account! Your balance is: #{show_balance}" if amount > @balance
 
     @balance -= amount
-    @transactions << { debit: amount, balance: @balance }
+    @transactions << { date: Date.today.strftime('%d/%m/%Y'), debit: amount, balance: @balance }
   end
 
   def statement_header
-    "credit || debit || balance"
+    "date || credit || debit || balance"
   end
 
   def statement
     puts statement_header
     @transactions.each do |t|
-      puts "#{t[:credit]} || #{t[:debit]} || #{t[:balance]}"
+      puts "#{t[:date]} || #{t[:credit]} || #{t[:debit]} || #{t[:balance]}"
     end
   end
 end
