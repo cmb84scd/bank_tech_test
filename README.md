@@ -8,6 +8,7 @@ This is my bank tech test, done in week 10 at Makers Academy. You are able to sa
 - rubocop # to see that it is linted
 - irb
 ```
+I spent some time planning (see user stories and diagrams below), before starting to write any tests/code. My code is structured so that it is clear, simple and easy to change or add to.
 
 ### Requirements
 - You should be able to interact with your code via a REPL like IRB or the JavaScript console. (You don't need to implement a command line interface that takes input from STDIN.)
