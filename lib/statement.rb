@@ -1,4 +1,4 @@
-require 'account'
+# require 'account'
 
 class Statement
   attr_reader :account
