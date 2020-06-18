@@ -41,21 +41,4 @@ describe Account do
       expect(account.transactions).to include spend
     end
   end
-
-  it 'can a print a statement header' do
-    expect(account.statement_header).to eq "date || credit || debit || balance"
-  end
-
-  describe '#statement' do
-    it 'can print a simple statement' do
-      account.deposit(500)
-      expect(account.statement).to eq [save]
-    end
-
-    it 'can print a statement' do
-      account.deposit(500)
-      account.withdraw(100)
-      expect(account.statement).to eq [save, spend]
-    end
-  end
 end
