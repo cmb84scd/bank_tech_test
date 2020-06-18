@@ -8,20 +8,16 @@ class Account
     @transactions = []
   end
 
-  def show_balance
-    @balance
-  end
-
   def deposit(amount)
-    @balance += amount
-    @transactions << { date: Date.today.strftime('%d/%m/%Y'), credit: amount, balance: @balance }
+    @transactions << { date: Date.today.strftime('%d/%m/%Y'), credit: amount,
+      balance: @balance += amount }
   end
 
   def withdraw(amount)
-    fail "Not enough money in your account! Your balance is: #{show_balance}" if amount > @balance
+    fail "Not enough money in your account! Your balance is: #{@balance}" if amount > @balance
 
-    @balance -= amount
-    @transactions << { date: Date.today.strftime('%d/%m/%Y'), debit: amount, balance: @balance }
+    @transactions << { date: Date.today.strftime('%d/%m/%Y'), debit: amount,
+      balance: @balance -= amount }
   end
 
   def statement_header

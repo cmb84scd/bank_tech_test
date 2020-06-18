@@ -1,29 +1,29 @@
 require 'account'
 
 describe Account do
-  let(:account) { account = Account.new }
-  
+  let(:account) { Account.new }
+
   it 'has a default balance of 0' do
-    expect(account.show_balance).to eq 0
+    expect(account.balance).to eq 0
   end
 
   it 'allows you to save money' do
-    expect { account.deposit(500) }.to change { account.show_balance }.by 500
+    expect { account.deposit(500) }.to change { account.balance }.by 500
   end
 
   describe '#withdraw' do
     it 'allows you to withdraw money' do
       account.deposit(500)
-      expect { account.withdraw(100) }.to change { account.show_balance }.by(-100)
+      expect { account.withdraw(100) }.to change { account.balance }.by(-100)
     end
 
     it 'raises an error if not enough money' do
-      expect { account.withdraw(100) }.to raise_error("Not enough money in your account! Your balance is: #{account.show_balance}")
+      expect { account.withdraw(100) }.to raise_error("Not enough money in your account! Your balance is: #{account.balance}")
     end
   end
 
-  let(:save) { { date: '17/06/2020', credit: 500, balance: 500 } }
-  let(:spend) { { date: '17/06/2020', debit: 100, balance: 400 } }
+  let(:save) { { date: Date.today.strftime('%d/%m/%Y'), credit: 500, balance: 500 } }
+  let(:spend) { { date: Date.today.strftime('%d/%m/%Y'), debit: 100, balance: 400 } }
 
   describe '#transactions' do
     it 'has an empty transactions list by default' do
