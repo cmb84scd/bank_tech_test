@@ -1,10 +1,9 @@
 require 'statement'
-require 'account'
 
 describe Statement do
   let(:save) { { date: Date.today.strftime('%d/%m/%Y'), credit: 500, balance: 500 } }
   let(:spend) { { date: Date.today.strftime('%d/%m/%Y'), debit: 100, balance: 400 } }
-  let(:account) { Account.new }
+  let(:account) { double('account') }
   let(:statement) { Statement.new(account) }
 
   it 'can a print a statement header' do
@@ -13,13 +12,15 @@ describe Statement do
 
   describe '#print' do
     it 'can print a simple statement' do
-      account.deposit(500)
+      allow(account).to receive(:deposit) { 500 }
+      allow(account).to receive(:transactions) { [save] }
       expect(statement.print).to eq [save]
     end
 
     it 'can print a statement' do
-      account.deposit(500)
-      account.withdraw(100)
+      allow(account).to receive(:deposit) { 500 }
+      allow(account).to receive(:withdraw) { 100 }
+      allow(account).to receive(:transactions) { [save, spend] }
       expect(statement.print).to eq [save, spend]
     end
   end
