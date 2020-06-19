@@ -1,4 +1,5 @@
 require 'statement'
+require 'account'
 
 describe Statement do
   let(:save) { { date: Date.today.strftime('%d/%m/%Y'), credit: 500, balance: 500 } }
