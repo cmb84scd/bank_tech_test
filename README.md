@@ -7,8 +7,15 @@ This is my bank tech test, done in week 10 at Makers Academy. You are able to sa
 - rspec # to see that all tests are passing
 - rubocop # to see that it is linted
 - irb
+- require './lib/account.rb'
+- require './lib/statement.rb'
 ```
-I spent some time planning (see user stories and diagrams below), before starting to write any tests/code. My code is structured so that it is clear, simple and easy to change or add to.
+Please note that when you create an instance of the Statement class you need to include the instance of the account class as an argument ie<br>
+`account = Account.new`<br>
+`statement = Statement.new(account)`
+
+### My Approach
+I spent some time planning (see user stories and diagrams below), before starting to write any tests/code. My code is structured so that it is clear, simple and easy to change or add to. I initially kept everything in one class and once I'd completed the requirements, I then refactored it into two classes.
 
 ### Requirements
 - You should be able to interact with your code via a REPL like IRB or the JavaScript console. (You don't need to implement a command line interface that takes input from STDIN.)
