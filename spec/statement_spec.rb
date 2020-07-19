@@ -1,8 +1,8 @@
 require 'statement'
 
 describe Statement do
-  let(:save) { { date: Date.today.strftime('%d/%m/%Y'), credit: 500, balance: 500 } }
-  let(:spend) { { date: Date.today.strftime('%d/%m/%Y'), debit: 100, balance: 400 } }
+  let(:save) { { date: Date.today.strftime('%d/%m/%Y'), credit: 500, debit:0, balance: 500 } }
+  let(:spend) { { date: Date.today.strftime('%d/%m/%Y'), credit: 0, debit: 100, balance: 400 } }
   let(:account) { double('account') }
   let(:statement) { Statement.new(account) }
 

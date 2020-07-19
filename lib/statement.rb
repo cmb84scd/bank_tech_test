@@ -11,8 +11,18 @@ class Statement
 
   def print
     puts statement_header
+    statement_body
+  end
+
+  private
+
+  def statement_body
     @account.transactions.each do |t|
-      puts "#{t[:date]} || #{t[:credit]} || #{t[:debit]} || #{t[:balance]}"
+      if t[:credit] == 0
+        puts "#{t[:date]} || || #{t[:debit]} || #{t[:balance]}"
+      elsif t[:debit] == 0
+        puts "#{t[:date]} || #{t[:credit]} || || #{t[:balance]}"
+      end
     end
   end
 end
