@@ -17,6 +17,9 @@ Please note that when you create an instance of the Statement class you need to 
 ### My Approach
 I spent some time planning (see user stories and diagrams below), before starting to write any tests/code. My code is structured so that it is clear, simple and easy to change or add to. I initially kept everything in one class and once I'd completed the requirements, I then refactored it into two classes.
 
+##### Update: 19/7/2020
+In the last feedback I received it was suggested I could do a further refactor and that is what I have just done. I have now refactored transaction into it's own class. In doing this I also had to do some minor amendments to both the account and statement classes to ensure everything still works as expected. I am really happy with this and I also learnt a lot doing it.
+
 ### Requirements
 - You should be able to interact with your code via a REPL like IRB or the JavaScript console. (You don't need to implement a command line interface that takes input from STDIN.)
 - Deposits, withdrawal.
@@ -67,6 +70,6 @@ Starting balance = 0
 
 | Input | Output |
 | --- | --- |
-| 1000 added | Balance is 1000 |
-| 2000 added | Balance is 3000 |
-| 500 withdrawn | Balance is 2500 |
+| deposit(1000) | Balance = 1000 |
+| deposit(2000) | Balance = 3000 |
+| withdraw(500) | Balance = 2500 |
