@@ -9,14 +9,21 @@ class Account
   end
 
   def deposit(amount)
-    @transactions << { date: Date.today.strftime('%d/%m/%Y'), credit: amount,
-      balance: @balance += amount }
+    @balance += amount
+    transaction(amount, 0)
   end
 
   def withdraw(amount)
     fail "Not enough money in your account! Your balance is: #{@balance}" if amount > @balance
 
-    @transactions << { date: Date.today.strftime('%d/%m/%Y'), debit: amount,
-      balance: @balance -= amount }
+    @balance -= amount
+    transaction(0, amount)
+  end
+
+  private
+
+  def transaction(credit, debit)
+    @transactions << { date: Date.today.strftime('%d/%m/%Y'), credit: credit,
+      debit: debit, balance: @balance }
   end
 end

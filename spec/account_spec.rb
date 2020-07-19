@@ -22,8 +22,8 @@ describe Account do
     end
   end
 
-  let(:save) { { date: Date.today.strftime('%d/%m/%Y'), credit: 500, balance: 500 } }
-  let(:spend) { { date: Date.today.strftime('%d/%m/%Y'), debit: 100, balance: 400 } }
+  let(:save) { { date: Date.today.strftime('%d/%m/%Y'), credit: 500, debit: 0, balance: 500 } }
+  let(:spend) { { date: Date.today.strftime('%d/%m/%Y'), credit: 0, debit: 100, balance: 400 } }
 
   describe '#transactions' do
     it 'has an empty transactions list by default' do
