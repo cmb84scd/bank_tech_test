@@ -1,4 +1,4 @@
-require 'date'
+require_relative 'transaction'
 
 class Account
   attr_reader :balance, :transactions
@@ -10,20 +10,25 @@ class Account
 
   def deposit(amount)
     @balance += amount
-    transaction(amount, 0)
+    make_transaction(amount, 0)
   end
 
   def withdraw(amount)
     fail "Not enough money in your account! Your balance is: #{@balance}" if amount > @balance
 
     @balance -= amount
-    transaction(0, amount)
+    make_transaction(0, amount)
   end
 
   private
 
-  def transaction(credit, debit)
-    @transactions << { date: Date.today.strftime('%d/%m/%Y'), credit: credit,
-      debit: debit, balance: @balance }
+  def make_transaction(credit, debit)
+    transaction = Transaction.new(credit, debit, @balance)
+    @transactions << {
+      date: transaction.date,
+      credit: transaction.credit,
+      debit: transaction.debit,
+      balance: transaction.balance
+    }
   end
 end
