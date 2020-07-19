@@ -62,8 +62,8 @@ date || credit || debit || balance
 | --- | --- |
 | Account | deposit |
 | | withdraw |
-| | statement |
-| | show_balance |
+| Statement | print |
+| Transaction | |
 
 #### Input/Output table
 Starting balance = 0
