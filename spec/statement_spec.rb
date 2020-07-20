@@ -1,8 +1,8 @@
 require 'statement'
 
 describe Statement do
-  let(:save) { { date: Date.today.strftime('%d/%m/%Y'), credit: 500, debit:0, balance: 500 } }
-  let(:spend) { { date: Date.today.strftime('%d/%m/%Y'), credit: 0, debit: 100, balance: 400 } }
+  let(:credit) { { date: Date.today.strftime('%d/%m/%Y'), credit: 500, debit:0, balance: 500 } }
+  let(:debit) { { date: Date.today.strftime('%d/%m/%Y'), credit: 0, debit: 100, balance: 400 } }
   let(:account) { double('account') }
   let(:statement) { Statement.new(account) }
 
@@ -13,15 +13,15 @@ describe Statement do
   describe '#print' do
     it 'can print a simple statement' do
       allow(account).to receive(:deposit) { 500 }
-      allow(account).to receive(:transactions) { [save] }
-      expect(statement.print).to eq [save]
+      allow(account).to receive(:transactions) { [credit] }
+      expect(statement.print).to eq [credit]
     end
 
     it 'can print a statement' do
       allow(account).to receive(:deposit) { 500 }
       allow(account).to receive(:withdraw) { 100 }
-      allow(account).to receive(:transactions) { [save, spend] }
-      expect(statement.print).to eq [save, spend]
+      allow(account).to receive(:transactions) { [credit, debit] }
+      expect(statement.print).to eq [credit, debit]
     end
   end
 end

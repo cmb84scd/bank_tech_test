@@ -22,8 +22,8 @@ describe Account do
     end
   end
 
-  let(:save) { { date: Date.today.strftime('%d/%m/%Y'), credit: 500, debit: 0, balance: 500 } }
-  let(:spend) { { date: Date.today.strftime('%d/%m/%Y'), credit: 0, debit: 100, balance: 400 } }
+  let(:credit) { { date: Date.today.strftime('%d/%m/%Y'), credit: 500, debit: 0, balance: 500 } }
+  let(:debit) { { date: Date.today.strftime('%d/%m/%Y'), credit: 0, debit: 100, balance: 400 } }
 
   describe '#transactions' do
     it 'has an empty transactions list by default' do
@@ -32,13 +32,13 @@ describe Account do
 
     it 'can store a single transaction' do
       account.deposit(500)
-      expect(account.transactions).to include save
+      expect(account.transactions).to include credit
     end
 
     it 'can store multiple transactions' do
       account.deposit(500)
       account.withdraw(100)
-      expect(account.transactions).to include spend
+      expect(account.transactions).to include debit
     end
   end
 end
