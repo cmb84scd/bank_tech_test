@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/cmb84scd/bank_tech_test.svg?branch=master)](https://travis-ci.org/cmb84scd/bank_tech_test)
+[![Build Status](https://travis-ci.org/cmb84scd/tech_tests.svg?branch=master)](https://travis-ci.org/cmb84scd/tech_tests)
 
 ## Bank tech test
 This is my bank tech test, done in week 10 at Makers Academy. You are able to save, spend, check your balance and print a statement in IRB. To use, please clone this repo and then do the following:
